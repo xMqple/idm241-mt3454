@@ -94,7 +94,7 @@ header img {
 }
 
 .card {
-    width: 400px;
+    width: 350px;
     background-color: var(--background-color);
     border-radius: 8px;
     overflow: hidden;
