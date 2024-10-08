@@ -58,6 +58,14 @@ header {
     justify-content: center;
 }
 
+a {
+    font-family: var(--font-body);
+    font-size: 20px;
+    color: var(--accent-color);
+    text-align: center;
+    display: block;
+}
+
 h1{
     border-radius: 4px;
     font-size: 48px;
