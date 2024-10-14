@@ -125,16 +125,25 @@ header img {
     border-radius: 15px;
     border: 1px solid var(--border-color);
 
-    transition: all, 0.3s, ease;
 }
 
-.game-card:hover {
-    .game-image img {
-        transform: translateY(-10px);
-    }
-    .game-content h2 {
-        color: var(--accent-color);
-    }
+.game-card .game-content h2 {
+    transition: color 0.3s ease; /* Ensure smooth transition for color */
+}
+
+.game-card .game-image img {
+    transform: translateY(0); /* Set default transform */
+    transition: transform 0.3s ease; /* Smooth transition for the transform */
+}
+
+.game-card:hover .game-content h2 {
+    color: var(--accent-color); /* Change the h2 color on hover */
+    transition: color 0.3s ease;
+}
+
+.game-card:hover .game-image img {
+    transform: translateY(-10px); /* Move the image up on hover */
+    transition: transform 0.3s ease; /* Smoother transition */
 }
 
 .game-image img{
