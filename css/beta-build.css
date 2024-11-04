@@ -117,6 +117,7 @@ header img {
 
 /* game container */
 .game-container {
+    display: inline-block;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -125,7 +126,7 @@ header img {
     margin-top: 30px;
 }
 
-.game-card{
+#gameCard{
     width: 261.19px;
     background-color: var(--background-color);
     border-radius: 15px;
@@ -133,23 +134,29 @@ header img {
 
 }
 
-.game-card .game-content h2 {
+#gameCard .game-content h2 {
     transition: color 0.3s ease; /* Ensure smooth transition for color */
 }
 
-.game-card .game-image img {
+/* Animations */
+.game-container #gameCard{
     transform: translateY(0); /* Set default transform */
     transition: transform 0.3s ease; /* Smooth transition for the transform */
 }
 
-.game-card:hover .game-content h2 {
+#gameCard:hover .game-content h2 {
     color: var(--accent-color); /* Change the h2 color on hover */
     transition: color 0.3s ease;
 }
 
-.game-card:hover .game-image img {
+#gameCard:hover {
     transform: translateY(-10px); /* Move the image up on hover */
     transition: transform 0.3s ease; /* Smoother transition */
+    box-shadow: 0px 6px 8px rgba(0,0,0,0.2);
+}
+
+#gameCard:active {
+    background-color: #DADADA;
 }
 
 .game-image img{
@@ -195,11 +202,133 @@ header img {
     font-size: 14px;
 }
 
-.like-icon {
-    color: var(--accent-color);
+/* like animation */
+
+.heart-container {
+    position: absolute;
+    display: inline-block;
+}
+
+.like-heart-btn{
+    position: absolute;
+    margin-bottom: 5px;
+}
+
+.empty-cont, .full-cont {
+    height: 26px;
+    width: 26px;
+    position: absolute;
     margin-left: 90px;
 }
 
+.empty-cont:hover .empty {
+    height: 30px;
+    width: 30px;
+}
+
+.full-cont:hover .full-cont {
+    height: 30px;
+    width: 30px;
+}
+
+.empty-cont {
+    filter: invert(1);
+    &.unlike {
+      transform-origin: bottom center;
+      animation: bounceCorazon .5s ease-out forwards;
+    }
+  }
+  .full-cont {
+    height: 50px;
+    cursor: pointer;
+    opacity: 0;
+    &.active {
+      opacity: 1;
+      &:before {
+        animation: appearOndeS .5s ease-out forwards;
+      }
+      &:after {
+        animation: appearOndeB .5s ease-out forwards;
+      }
+      .view {
+        animation: appearCorazon .2s ease-out forwards;
+      }
+      &.enabled {
+        animation: removeCorazon .5s ease-out forwards; 
+      }
+    }
+     &:before {
+        content:'';
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        border-radius: 100px;
+        border-right: 1px solid rgba(255,255,255,.7);
+        border-left: 1px solid rgba(255,255,255,.3);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(45deg);
+        //animation: appearOndeS 3s ease-out forwards;
+      }
+     &:after {
+        content:'';
+        position: absolute;
+        height: 110px;
+        width: 110px;
+        border-radius: 100px;
+        border-right: 1px solid rgba(255,255,255,.3);
+        border-left: 1px solid rgba(255,255,255,.7);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(45deg);
+        //animation: appearOndeB 3s ease-out forwards;
+      }
+    .view {
+      z-index: 10;
+      height: 50px;
+      width: 50px;
+      overflow: hidden;
+      position: absolute;
+      bottom: 0;
+      //animation: appearCorazon 3s ease-out forwards;
+      svg {
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+  @keyframes appearCorazon {
+    from { height:0px;}
+    25% {transform:rotate(15deg) scale(2)}
+    75% {transform:rotate(-15deg) scale(1)}
+    to { height: 50px;transform:rotate(0deg)}
+  }
+  @keyframes appearOndeS {
+    from { height:0px;width:0px;;opacity:0;}
+    50% {opacity:1;}
+    to { height: 100px;width:100px;opacity:0;}
+  }
+  @keyframes appearOndeB {
+    from { height:0px;width:0px;opacity:0;}
+    50% {opacity:1;}
+    to { height: 110px;width:110px;opacity:0;}
+  }
+  
+  @keyframes removeCorazon {
+    10% { transform:scale(1);}
+    50% { height:120px; width:120px; }
+    to { transform:scale(0);
+      height:0px;
+      width:0px;
+      opacity: 0;
+    }
+  }
+  @keyframes bounceCorazon {
+    10% { transform:rotateZ(5deg) translate(-50%, -50%);}
+    50% { transform:rotateZ(-5deg) translate(-50%, -50%);}
+    to { transform:rotateZ(0deg) translate(-50%, -50%);}
+  }
+  
 /* card container */
 .card-container {
     display: flex;
