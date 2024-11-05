@@ -1,36 +1,8 @@
-const gameCard = document.getElementById('gameCard');
+// Select the checkbox
+const checkbox = document.getElementById('check');
 
-gameCard.addEventListener('mousedown', () => {
-    gameCard.style.backgroundColor = "#DADADA !important";
+// Add an event listener to toggle the checkbox state
+document.querySelector('.like-icon').addEventListener('click', function() {
+    checkbox.checked = !checkbox.checked; // Toggle the checkbox
 });
-
-gameCard.addEventListener('mouseup', () => {
-    gameCard.style.backgroundColor = "#FFFFFF !important";
-});
-
-document.querySelector('.like-heart-btn').addEventListener('click', function(){
-    this.classList.toggle('active');
-  });
-  
-
-
-  let full = document.querySelector('.full-cont')
-  let empty = document.querySelector('.empty-cont')
-  this.activated = false;
-  full.addEventListener('click',()=> {
-    if(this.activated == false) {
-      full.classList.add('active'); 
-    } else {
-      full.classList.add('enabled');
-      empty.classList.add('unlike');
-      setTimeout(() => {
-        full.classList.remove('active');
-        full.classList.remove('enabled');
-        empty.classList.remove('unlike');
-        this.activated = false;
-      },500)
-    }
-    this.activated = true;
-  })
-  
   

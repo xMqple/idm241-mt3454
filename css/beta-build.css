@@ -141,17 +141,17 @@ header img {
 /* Animations */
 .game-container #gameCard{
     transform: translateY(0); /* Set default transform */
-    transition: transform 0.3s ease; /* Smooth transition for the transform */
+    transition: transform 0.5s ease; /* Smooth transition for the transform */
 }
 
 #gameCard:hover .game-content h2 {
     color: var(--accent-color); /* Change the h2 color on hover */
-    transition: color 0.3s ease;
+    transition: color 0.5s ease;
 }
 
 #gameCard:hover {
     transform: translateY(-10px); /* Move the image up on hover */
-    transition: transform 0.3s ease; /* Smoother transition */
+    transition: transform 0.5s ease; /* Smoother transition */
     box-shadow: 0px 6px 8px rgba(0,0,0,0.2);
 }
 
@@ -209,126 +209,110 @@ header img {
     display: inline-block;
 }
 
-.like-heart-btn{
+.heart-icon{
     position: absolute;
     margin-bottom: 5px;
+    fill: transparent;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.5em;
+    border-radius:10px 10px 0 0;
+    display: flex;
+    margin-left: 85px;
 }
 
-.empty-cont, .full-cont {
-    height: 26px;
-    width: 26px;
-    position: absolute;
-    margin-left: 90px;
-}
-
-.empty-cont:hover .empty {
-    height: 30px;
-    width: 30px;
-}
-
-.full-cont:hover .full-cont {
-    height: 30px;
-    width: 30px;
-}
-
-.empty-cont {
-    filter: invert(1);
-    &.unlike {
-      transform-origin: bottom center;
-      animation: bounceCorazon .5s ease-out forwards;
-    }
-  }
-  .full-cont {
-    height: 50px;
+.heart-empty, .heart-fill {
     cursor: pointer;
+    position: absolute;
+    transition: color 0.3s ease;
+}
+
+.like-icon-div-child {
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+}
+
+.heart-empty {
+    opacity: 1;
+    color: var(--text-color);
+}  
+
+.heart-fill {
+    position: absolute;
     opacity: 0;
-    &.active {
-      opacity: 1;
-      &:before {
-        animation: appearOndeS .5s ease-out forwards;
-      }
-      &:after {
-        animation: appearOndeB .5s ease-out forwards;
-      }
-      .view {
-        animation: appearCorazon .2s ease-out forwards;
-      }
-      &.enabled {
-        animation: removeCorazon .5s ease-out forwards; 
-      }
+    transform: scale(0);
+    transition: transform 0.25s ease-in-out, opacity 0.2s ease-in-out;
+    color: var(--text-color);
+}
+
+/* Hide the checkbox */
+input[type="checkbox"] {
+    display: none; /* This will hide the checkbox */
+}
+
+/* Hover effects */
+.like-icon-div-child:hover .heart-fill {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.like-icon-div-child:hover .heart-empty {
+    transition-delay: 0.25s;
+    opacity: 0;
+}
+
+/* Checkbox checked states */
+#heart-icon:checked ~ .heart-empty { 
+    opacity: 0;
+}
+
+#heart-icon:checked ~ .heart-fill{
+    animation: like-animation 0.25s ease-in-out forwards;
+}
+
+#heart-icon:not(:checked) ~ .heart-fill {
+    animation: unlike-animation 0.25s ease-in-out;
+}
+
+/* Keyframe animations */
+@keyframes like-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1);
     }
-     &:before {
-        content:'';
-        position: absolute;
-        height: 100px;
-        width: 100px;
-        border-radius: 100px;
-        border-right: 1px solid rgba(255,255,255,.7);
-        border-left: 1px solid rgba(255,255,255,.3);
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%) rotate(45deg);
-        //animation: appearOndeS 3s ease-out forwards;
-      }
-     &:after {
-        content:'';
-        position: absolute;
-        height: 110px;
-        width: 110px;
-        border-radius: 100px;
-        border-right: 1px solid rgba(255,255,255,.3);
-        border-left: 1px solid rgba(255,255,255,.7);
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%) rotate(45deg);
-        //animation: appearOndeB 3s ease-out forwards;
-      }
-    .view {
-      z-index: 10;
-      height: 50px;
-      width: 50px;
-      overflow: hidden;
-      position: absolute;
-      bottom: 0;
-      //animation: appearCorazon 3s ease-out forwards;
-      svg {
-        position: absolute;
-        bottom: 0;
-      }
+    
+    50% {
+        opacity: 1;
+        color: var(--accent-color);
+        transform: scale(0.5);
     }
-  }
-  @keyframes appearCorazon {
-    from { height:0px;}
-    25% {transform:rotate(15deg) scale(2)}
-    75% {transform:rotate(-15deg) scale(1)}
-    to { height: 50px;transform:rotate(0deg)}
-  }
-  @keyframes appearOndeS {
-    from { height:0px;width:0px;;opacity:0;}
-    50% {opacity:1;}
-    to { height: 100px;width:100px;opacity:0;}
-  }
-  @keyframes appearOndeB {
-    from { height:0px;width:0px;opacity:0;}
-    50% {opacity:1;}
-    to { height: 110px;width:110px;opacity:0;}
-  }
-  
-  @keyframes removeCorazon {
-    10% { transform:scale(1);}
-    50% { height:120px; width:120px; }
-    to { transform:scale(0);
-      height:0px;
-      width:0px;
-      opacity: 0;
+
+    100% {
+        opacity: 1;
+        color: var(--accent-color);
+        transform: scale(1.0);
     }
-  }
-  @keyframes bounceCorazon {
-    10% { transform:rotateZ(5deg) translate(-50%, -50%);}
-    50% { transform:rotateZ(-5deg) translate(-50%, -50%);}
-    to { transform:rotateZ(0deg) translate(-50%, -50%);}
-  }
-  
+}
+
+@keyframes unlike-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+    50% {
+        opacity: 1;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        color: var(--text-color);
+        transform: scale(1.0);
+    }
+}
+
 /* card container */
 .card-container {
     display: flex;
