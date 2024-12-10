@@ -1,0 +1,177 @@
+@font-face{
+    font-family: 'Roboto';
+    src: url('../fonts/roboto-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Roboto-Bold', sans-serif;
+    src: url('../fonts/roboto-bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Roboto-Italic', sans-serif;
+    src: url('../fonts/roboto-italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Youtube-Sans-Bold';
+    src: url("../fonts/youtube-sans-bold.woff2") format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    /* Fonts */
+    --font-header:'Youtube-Sans-Bold', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; 
+    --font-body:'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-italic: 'Roboto-Italic', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --font-bold: 'Roboto-Bold', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    /* Colors */
+    --background-color: #FFFFFF; 
+    --accent-color: #FF0000; 
+    --text-color: #000000;
+
+    font-size: 18px;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body{ 
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    font-family: var(--font-body);
+    font-size: 20px;
+    color: var(--accent-color);
+    text-align: center;
+    display: block;
+}
+
+h1{
+    border-radius: 4px;
+    font-size: 48px;
+    padding: 15px;
+    margin: 8px;
+    font-family: var(--font-header);
+    color: #282828;
+    letter-spacing: -3px;
+}
+
+h3{
+    display: block;
+    font-family: var(--font-bold);
+    font-size: 24px;
+}
+
+.container {
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 10px;
+    margin-right: 500px;
+    margin-left: 500px;
+}
+
+header img {
+    height: 50px;
+    margin: 0 5px;
+}
+
+/* card container */
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-content{
+    margin: 0.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    min-width: 250px;
+}
+
+.card {
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    margin: 20px;
+    border-radius: 8px;
+    background-color: var(--background-color);
+}
+
+.card img {
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    color: var(--accent-color);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.card h3 {
+    text-align: center;
+}
+
+.card-content p {
+    font-family: var(--font-bold);
+    font-weight: 500;
+    padding-top: 15px;
+}
+.card h3 {
+    text-align: center;
+}
+
+.card ul {
+    padding-left: 14px;
+    font-family: var(--font-body);
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.video{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+
+video{
+    width: 70%;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+
+@media (width <= 600px) {
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+
+    video{
+        width: 90%;
+    }
+
+}

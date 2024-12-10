@@ -22,16 +22,16 @@
     <a href="https://www.nintendo.com/" target="_blank">www.nintendo.com</a>
 </div>  
 
-<section class="shopping-cart"> 
+<section class="shopping-cart">
     <i class="fa-solid fa-cart-shopping"></i>
+    <div id="cart-items"></div> <!-- Container for added items -->
 </section>
 
     <section class="game-container">
-        <a id= "gameCard" href="https://www.nintendo.com/us/store/products/fire-emblem-three-houses-switch/" target="_blank">
+        <src id= "gameCard" href="https://www.nintendo.com/us/store/products/fire-emblem-three-houses-switch/" target="_blank">
             <div class = "game-image">
-                <img src = "../images/fire-emblem-three-houses.jpg" alt="FE3H Image">
+                <img src = "../images/fire-emblem-three-houses.jpg" alt="Fe3h img">
             </div>
-
             <div class="game-content">
                 <h2> Fire Emblem™: Three Houses </h2>
                 <div class="date">
@@ -41,7 +41,7 @@
                     <p> $59.99 </p>
                 </div>
                 <div class = "console">
-                    <p class = "switch"> Nintendo Switch </p>
+                    <button class="add-to-cart" id="addToCartButton" type="button"> Add to cart </button>
                         <section class="heart-container"> 
                             <span class="heart-icon">
                                 <div class="like-icon-div">
@@ -52,17 +52,24 @@
                                     </label>
                                 </div>
                                 </div>
+                                <section class="genre">
+                                    <span class="genre-item"> RPG</span>
+                                    •
+                                    <span class="genre-item"> Strategy </span>
+                                    •
+                                    <span class="genre-item"> Simulation</span>
+                                </section>
+                            </span>
+                        </section>
+                                <!--
                                 <div class="qty-input">
                                     <button class="qty-count-minus" data-action="minus" type="button">-</button>
                                     <input class="product-qty" type="number" name="product-qty" min="0" max="10" value="1">
                                     <button class="qty-count-add" data-action="add" type="button">+</button>
-                                </div>
-                                <button class="add-to-cart" type="button"> Add to cart </button>
-                            </span>
-                        </section>
+                                </div> -->
                 </div>
             </div>
-        </a>
+        </src>
     </section>
 
 <section class = "card-container">
@@ -200,7 +207,7 @@
     </div>
 </section>
 
-<script src="js/scripts.js"></script>
-
+<!-- Link your script file here -->
+<script src="script.js"></script>
 </body>
 </html>

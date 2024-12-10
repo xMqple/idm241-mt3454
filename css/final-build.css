@@ -406,17 +406,57 @@ input[type="checkbox"] {
 
 /* Add to Cart Button */ 
 .add-to-cart {
-    display: inline-block;
     font-family: var(--font-body);
     font-size: 16px;
     padding: 4px 14px;
     background-color: var(--text-color);
     color: var(--background-color);
     cursor: pointer;
-    margin: 15px 0px 5px 10px;
     border-radius: 10px;
+    position: relative;
+    margin-bottom: 5px;
 }
 
+.shopping-cart {
+    text-align: right;
+    margin: 0 10px 0 0;
+    font-size: 30px;
+}
+
+.add-to-cart:hover {
+    background-color: var(--accent-color);
+}
+
+@keyframes fly-to-cart {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(calc(100vw - 50px), calc(-100vh + 50px));
+        opacity: 0;
+    }
+}
+
+.fly-image {
+    position: absolute;
+    width: 100px;
+    height: auto;
+    z-index: 1000;
+    animation: fly-to-cart 1s ease-in-out forwards;
+} 
+
+
+.genre{
+    font-family: var(--font-body);
+    font-size: 14px;
+    text-align: center;
+}
+
+.genre-item:hover {
+    color: var(--accent-color);
+    cursor: default;
+}
 /* card container */
 .card-container {
     display: flex;

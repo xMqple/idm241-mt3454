@@ -70,3 +70,26 @@ var QtyInput = (function () {
 		$input.val(qty);
 	});
 })();
+
+/* Add to cart */
+document.getElementById('addToCartButton').addEventListener('click', function () {
+    // Get the game image source
+    const gameImageSrc = document.querySelector('.game-image img').src;
+
+    // Create a new div for the cart item
+    const cartItem = document.createElement('div');
+    cartItem.className = 'cart-item';
+
+    // Add the image to the cart item
+    const cartImage = document.createElement('img');
+    cartImage.src = gameImageSrc;
+    cartImage.alt = 'Game Image';
+    cartImage.className = 'cart-image';
+
+    // Append the image to the cart item
+    cartItem.appendChild(cartImage);
+
+    // Append the cart item to the shopping cart container
+    const cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.appendChild(cartItem);
+});
